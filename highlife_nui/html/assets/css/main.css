@@ -1,0 +1,481 @@
+/* Makes the base nui take up the entire screen */
+
+@font-face {
+  font-family: 'bankgothic';
+  src: url('../fonts/bankgothic.ttf') /* TTF file for CSS3 browsers */
+}
+
+::selection {
+  background-color: transparent !important;
+}
+
+html,body {
+	overflow: hidden;
+}
+
+html {
+	height: 100%;
+}
+
+/* Remove the white 1px border from any iframe */
+iframe {
+	border: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	border: 0;
+}
+
+#display_center {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#iframe_phone {
+  width: 330px;
+  height: 670px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  border: 0 !important;
+  overflow: hidden;
+}
+
+.full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+/*  background-color: #000; /* Optional: Add background color */*/
+}
+
+.rotating-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: rotateImage 11.51s linear infinite;
+}
+
+.rotating {
+    animation: rotateImage 11.51s linear infinite;
+}
+
+@keyframes rotateImage {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Lockpicking */
+
+#banking {
+	display: none;
+}
+
+#dmv {
+  display: none;
+}
+
+#crafting {
+  display: none;
+}
+
+#guide {
+  display: none;
+}
+
+#lockpicking {
+  display: none;
+}
+
+#input_context {
+  display: none;
+}
+
+#lottery_ticket {
+  display: none;
+}
+
+#lockpicking #container {
+  margin: 10vh;
+  text-align: center;
+  color: #fefefe;
+}
+
+#lockpicking #circle {
+  position: relative;
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  margin: -13.6em auto;
+  border: 2px solid #fefefe;
+  z-index: 1;
+  transition: all 15s linear; 
+}
+#lockpicking #circle:hover{
+   cursor:pointer;
+   cursor:hand;
+}
+#lockpicking .hidden {
+  transition: none !important;
+  visibility: hidden;
+}
+#lockpicking #retry{
+  text-align: center;
+  margin: 2em auto;
+  line-height: 1em;
+  font-size: 2.5em;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  color: #fefefe;
+  text-transform: uppercase;
+  background-color: #222;
+  transition: all 0.5s ease;
+}
+#lockpicking #retry2{
+    transition: all 0.25s ease;
+}
+#lockpicking #retry2 > p{
+  text-align: center;
+  margin: 3.5em auto;
+  line-height: 1em;
+  font-size: 2.5em;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  color: #fefefe;
+  text-transform: uppercase;
+  background-color: #222;
+  transition: all 0.25s ease;
+}
+#lockpicking #retry2 > h1{
+   text-align: center;
+  margin: -5.75em auto;
+  line-height: 1em;
+  font-size: 1.5em;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  color: #fefefe;
+  text-transform: uppercase;
+  background-color: #222;
+}
+#lockpicking #retry2:hover > p{
+  color: #2ecc71;
+  cursor: pointer;
+  cursor: hand;
+}
+#lockpicking #retry:hover{
+    color: #2ecc71;
+  cursor: pointer;
+  cursor: hand;
+}
+#lockpicking #circle2 {
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 2px solid #fefefe;
+}
+
+#lockpicking #pointer {
+  height: 1.5em;
+  width: 12px;
+  background-color: #2ecc71;
+  margin: -0.75em auto;
+  border-radius: 4px;
+  z-index: 999;
+  position: relative;
+}
+
+#lockpicking p {
+  margin-top: -3.3em;
+  line-height: 1em;
+  font-size: 3em;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  color: #fefefe;
+}
+#lockpicking p > h4{
+  font-size: 0.5em;
+  margin-top: -0.5em;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  color: #fefefe;
+}
+
+#lockpicking .point {
+  position: relative;
+  z-index: 10;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background-color: #2ecc71;
+  margin: -1em auto;
+  border: 4px solid #222;
+  box-shadow: 0 0 0 1pt #2ecc71;
+  animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse{
+  0% {   box-shadow: 0 0 0 1pt #2ecc71; }
+  50% {  box-shadow: 0 0 0 2.5pt #2ecc71;}
+}
+
+/* Inventory */
+
+#inventory_notifications {
+	font-family: bankgothic;
+	position: absolute;
+	text-transform: uppercase;
+	right: 40px;
+	bottom: 40px;
+	font-size: 26px;
+	font-weight: bold;
+	color: #FFF;
+	text-shadow:
+	  -1px -1px 0 #000,
+	   1px -1px 0 #000,
+	  -1px  1px 0 #000,
+	   1px  1px 0 #000;
+}
+
+/* Babou */
+.babou {
+	display: none;
+	height: 100vh;
+}
+
+.active {
+  display: block !important;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Bodycam */
+
+#bodycam {
+	display: none;
+	font-family: 'Share Tech Mono', monospace;
+	font-size: 13px;
+	color: #AFAFAF;
+}
+
+.Blink {
+	animation: blinker 1.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+}
+
+@keyframes blinker {  
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+.fa-circle {
+	height: 12px;
+	width: 12px;
+	background-color: #ce1f21;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.top-right {
+	float: right;
+	width: auto;
+	text-align: right;
+}
+
+.top-right-container {
+	float: right;
+	width: auto;
+	padding: 5px;
+	margin: 10px;
+	text-align: right;
+	background-color: rgba(0,0,0,0.5);
+	-moz-border-radius: 10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+
+.container {
+	width: 100wh;
+	height: 100vh;
+}
+
+.card img {
+  height: auto !important;
+  display: block;
+  position: absolute;
+  /*border: 6px solid #8b8b8bbf;*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jail_card img {
+  max-width: 350px;
+}
+
+.chance_card img {
+  max-height: 350px;
+}
+
+.blueprint_coke_1 img {
+  max-width: 60%;
+}
+
+#hunting_map img {
+  max-height: 80vh;
+}
+
+.independence_card img {
+  max-width: 60%;
+}
+
+.jail_card, .chance_card, .independence_card, .uno_reverse_card, .blueprint_coke_1, .warrant .hunting_map {
+  display: none;
+}
+
+#scratchcard {
+	display: none;
+}
+
+#book-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Each page is a background image that preserves aspect ratio */
+#book > div {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; /* keeps full image visible, no cropping */
+}
+
+#book .page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* make sure nothing adds half-pixels at the edges */
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#book .page img.page-img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;     /* avoid any accidental overflow on weird ratios */
+  display: block;
+
+  /* subpixel rendering “wiggle” guards */
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* turn.js sometimes injects wrappers; keep them clipped too */
+#book .turn-page,
+#book .hard {
+  overflow: hidden;
+}
+
+#notificationStack {
+    position: absolute;
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  background-color: rgb(0 0 0 / 49%);
+  padding: 5px 7px;
+  border: 3px solid #6797b1;
+  flex-basis: auto;
+  flex-grow: 0;
+  max-width: fit-content;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards, slideOut 1s cubic-bezier(0.68, -0.6, 0.32, 1.6) 4s forwards;
+}
+
+.notification.red-border {
+  border-color: rgba(178, 50, 50, 0.8); /* Red border for "remove" notifications */
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon.box {
+  background-image: url('../img/box.svg');
+  background-color: transparent;
+}
+
+.icon.gun {
+  background-image: url('../img/gun.svg');
+  background-color: transparent;
+}
+
+.text {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}

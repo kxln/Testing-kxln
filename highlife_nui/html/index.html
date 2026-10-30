@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- stop this shit from caching for the love of god -->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+
+		<title>highlife_nui</title>
+
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+		<script type="text/javascript" src="./assets/js/utils.js"></script>
+
+		<script type="text/javascript" src="./assets/js/cad.js"></script>
+		<script type="text/javascript" src="./assets/js/book.js"></script>
+		<script type="text/javascript" src="./assets/js/tilt.js"></script>
+		<script type="text/javascript" src="./assets/js/medal.js"></script>
+		<script type="text/javascript" src="./assets/js/cards.js"></script>
+		<script type="text/javascript" src="./assets/js/babou.js"></script>
+		<script type="text/javascript" src="./assets/js/radio.js"></script>
+		<script type="text/javascript" src="./assets/js/jquery.js"></script>
+		<script type="text/javascript" src="./assets/js/crafting.js"></script>
+		<script type="text/javascript" src="./assets/js/lockpicking.js"></script>
+		<script type="text/javascript" src="./assets/js/spatialsound.js"></script>
+		<script type="text/javascript" src="./assets/js/input_context.js"></script>
+		<script type="text/javascript" src="./assets/js/lottery_ticket.js"></script>
+		<script type="text/javascript" src="./assets/js/page-flip.browser.js"></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+		<script src="https://browser.sentry-cdn.com/7.88.0/bundle.feedback.min.js" integrity="sha384-iG84DR/N7WlVUu7e2IH1Hsg6Ll6I1dCcTBKxT4csf2poWURCFzaak9WeB55L1+nF" crossorigin="anonymous"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&effect=outline" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/1.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/2.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/3.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/4.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/5.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/6.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/7.jpg" as="image">
+		<link rel="prefetch" href="https://cdn.highliferoleplay.net/fivem/guide_book/8.jpg" as="image">
+	</head>
+
+	<body>
+		<div id="app"></div>
+		<iframe id='guide' src="https://cdn.highliferoleplay.net/fivem/guide/" scrolling="no"></iframe>
+
+		<iframe id='dmv' src="https://build.highliferoleplay.net/dmv/" scrolling="no"></iframe>
+		<iframe id='crafting' src="https://build.highliferoleplay.net/crafting/" scrolling="no"></iframe>
+		<iframe id='lockpicking' src="https://build.highliferoleplay.net/lockpicking/" scrolling="no"></iframe>
+		<iframe id='input_context' src="https://build.highliferoleplay.net/input_context/?v=2" scrolling="no"></iframe>
+		<iframe id='lottery_ticket' src="https://build.highliferoleplay.net/lottery_ticket/" scrolling="no"></iframe>
+
+		<div class="full-screen" id="full-screen">
+			<img src="https://c.tenor.com/NVwxxoyoyGgAAAAd/tenor.gif" alt="Rotating Image" class="rotating-image">
+		</div>
+
+		<div id="notificationStack"></div>
+
+		<div id="bodycam">
+			<div class="top-right-container">
+				<div class="top-right">
+					<img src="./assets/img/bodycam.png" width="64" height="64">
+				</div>
+
+				<div class="top-right">
+					REC&nbsp;&nbsp;<i class="fa-circle Blink"></i>&nbsp;&nbsp;XION CAM&nbsp;&nbsp;<br /><br />
+					<span id="character_name">XXX</span>
+					<span id="callsign">[000]</span>&nbsp;&nbsp;<br />
+					<span id="agency">LOS SANTOS POLICE DEPARTMENT</span>&nbsp;&nbsp;<br />
+				</div>
+			</div>
+		</div>
+
+		<div id="display_center">
+			<div class="cards"></div>
+
+			<div class="baboushit">
+				<!-- <img id="babou_1" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905652578073849886/IMG_1103.jpg">
+				<img id="babou_2" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/615597155260039168/905640286439497768/IMG_1296.jpg">
+				<img id="babou_3" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905647914121068564/IMG_1197.jpg">
+				<img id="babou_4" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905647962691084338/IMG_1185.jpg">
+				<img id="babou_5" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905648034875068436/IMG_1160.jpg">
+				<img id="babou_6" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905647818121838602/IMG_1237.jpg">
+				<img id="babou_7" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905647746818670592/IMG_1262.jpg">
+				<img id="babou_8" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905648197974753310/IMG_1145.jpg">
+				<img id="babou_9" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905648278899662868/IMG_1106.jpg">
+				<img id="babou_10" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905648338739806278/IMG_1104.jpg">
+				<img id="babou_11" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905653211174694952/IMG_1307.jpg">
+				<img id="babou_12" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905652516434366504/IMG_1097.jpg">
+				<img id="babou_13" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905652684659499038/IMG_1112.jpg">
+				<img id="babou_14" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905652757975932958/IMG_1118.jpg">
+				<img id="babou_15" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905652801273749535/IMG_1124.jpg">
+				<img id="babou_16" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905653008262652014/IMG_1217.jpg">
+				<img id="babou_17" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905653095600652328/IMG_1262.jpg">
+				<img id="babou_18" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905648153670332416/IMG_1138.jpg">
+				<img id="babou_19" class="babou" rel="preload" src="https://cdn.discordapp.com/attachments/852154267598979092/905647679613313044/IMG_1282.jpg"> -->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./assets/js/three.js"></script>
+
+		<script type="text/javascript">
+			let dts = false;
+			let is_dev = undefined;
+			let nui_debug = false;
+			let sentry_init = false;
+			let bypass_escape = false;
+
+			window.onload = function (e) {
+				var utils = new Utils();
+
+				async function waitForAllIframes(iframes) {
+					const loadPromises = Array.from(iframes).map(iframe => {
+						return new Promise(resolve => {
+							if (iframe.contentDocument?.readyState === 'complete') {
+								resolve();
+							} else {
+								iframe.addEventListener('load', resolve, { once: true });
+							}
+						});
+					});
+
+					await Promise.all(loadPromises);
+				}
+
+				// Usage
+				const iframes = document.querySelectorAll('iframe');
+
+				waitForAllIframes(iframes);
+
+				const cad = new CAD(utils);
+				const book = new Book(utils);
+				const babou = new Babou(utils);
+				const medal = new Medal(utils);
+				const cards = new Cards(utils);
+				const radio = new Radio(utils);
+				const crafting = new Crafting(utils);
+				const lockpicking = new Lockpicking(utils);
+				const spatialsound = new SpatialSound(utils);
+				const input_context = new InputContext(utils);
+				const lottery_ticket = new LotteryTicket(utils);
+
+				document.onkeydown = function (evt){
+					evt = evt || window.event;
+
+					var isEscape = false;
+
+					if ("key" in evt) {
+						isEscape = (evt.key === "Escape" || evt.key === "Esc");
+					}
+					else {
+						isEscape = (evt.keyCode === 27);
+					}
+
+					if (isEscape) {
+						if (!bypass_escape) {
+							utils.CloseAny();
+						}
+					}
+				}
+
+				window.addEventListener('message', function (event) {
+					// fivem auto places any data send via SendNUIMessage into a 'data' object
+					var eventData = event.data;
+
+					if (eventData)
+					{
+						// enable debug to print all eventData passed to the window listener
+						if (eventData.toggle_debug) nui_debug = !nui_debug;
+
+						if (eventData.is_dev !== undefined) {
+							is_dev = eventData.is_dev;
+						}
+
+						if (nui_debug) console.log(event);
+
+						utils.GetIP();
+
+						if (eventData.open_url) {
+							window.invokeNative('openUrl', eventData.open_url);
+						}
+
+						if (eventData.reference !== undefined) {
+							if (eventData.reference == 'sentry')
+							{
+								if (eventData.action == 'init')
+								{
+									console.log('highlife-version:', eventData.commit_hash)
+
+									Sentry.init({
+										dsn: eventData.dsn,
+										release: eventData.commit_hash,
+										colorScheme: 'dark',
+									})
+
+									sentry_init = true;
+								}
+
+								if (eventData.action == 'report')
+								{
+									if (sentry_init) {
+										bypass_escape = true;
+
+										utils.ToggleFocus(true);
+
+										Sentry.showReportDialog({
+											labelName: 'Username',
+
+											user: {
+												name: eventData.username,
+												email: "player@highliferoleplay.net"
+											},
+											title: "HighLife ran into an unexpected error",
+											subtitle: "Tell us what happened below if you noticed anything amiss/if the below error relates in any way",
+											subtitle2: eventData.error,
+
+											eventId: eventData.issue_id
+										});
+
+										document.addEventListener('click', function (e) {
+											// clicked out of the dialog or clicked close
+											if (e.target && (e.target.id == 'display_center' || e.target.className == 'urgentry-report-dialog-close')) {
+												bypass_escape = false;
+
+												utils.ToggleFocus(false);
+											}
+										});
+									}
+								}
+							}
+
+							if (eventData.reference == 'jarrrk_mode')
+							{
+								const jarrrk_audio = new Audio('https://cdn.highliferoleplay.net/fivem/sounds/every_step_jarrrk.ogg')
+
+								jarrrk_audio.crossorigin = "anonymous";
+
+								jarrrk_audio.volume = 0.2;
+
+								jarrrk_audio.play();
+							}
+
+							if (eventData.reference == 'copy')
+							{
+								utils.CopyToClipboard(eventData.data);
+							}
+
+							if (eventData.reference == 'medal_active' && !is_dev)
+							{
+								try {
+									fetch('http://localhost:12665/api/v1/creatorcode/set', {
+										method: 'POST',
+										headers: {
+											'Content-Type': 'application/json',
+											'publicKey': 'pub_O0Ce8DwmFk7PsDHEzyZeNorGE05zP8ad'
+										},
+										body: JSON.stringify({
+											'creatorCode': 'highlife'
+										})
+									}).then(response => {
+										fetch('https://highlife/medal_active', {
+											method: 'POST',
+											headers: {
+												'Content-Type': 'application/json; charset=UTF-8',
+											},
+											body: JSON.stringify({
+												active: true,
+											})
+										}).then(resp => resp.json()).then(resp => {});
+									}).catch(() => {
+										fetch('https://highlife/medal_active', {
+											method: 'POST',
+											headers: {
+												'Content-Type': 'application/json; charset=UTF-8',
+											},
+											body: JSON.stringify({
+												active: false,
+											})
+										}).then(resp => resp.json()).then(resp => {});
+									});
+								}
+								catch (e)
+								{
+									cosnole.log('this')
+								}
+							}
+
+							if (eventData.reference == 'medal')
+							{
+								medal.trigger_api(eventData.api_context, eventData.event_data);
+							}
+
+							if (eventData.reference == 'cake')
+							{
+								var audio = new Audio('https://cdn.highliferoleplay.net/sound/lol.ogg');  
+								audio.type = 'audio/ogg';
+								audio.volume = 0.1;
+
+								try {
+								  audio.play();
+								}
+								catch (err) {}
+							}
+
+							if (eventData.reference == 'mugshot')
+							{
+								try {
+									// fetch url
+									const image = new Image();
+
+									image.crossOrigin = 'Anonymous';
+
+									image.src = eventData.data.url;
+
+									image.onload = function () {
+										const canvas = document.createElement('canvas');
+										const ctx = canvas.getContext('2d');
+
+										canvas.height = image.naturalHeight;
+										canvas.width = image.naturalWidth;
+
+										ctx.drawImage(image, 0, 0);
+
+										$.post('https://highlife/sendMugshotBase64', JSON.stringify({
+											encodedImage: canvas.toDataURL(),
+											removed_items: eventData.data.removed_items,
+											id: eventData.data.id
+										}));
+									};
+								}
+								catch (err) {}
+							}
+
+							if (eventData.reference == "guide")
+							{
+								var guide = $('#guide').contents();
+
+								document.getElementById('guide').style.display = 'block';
+
+								$('.container-fluid', guide).delay(1000).fadeIn("slow");
+
+								document.getElementById("guide").classList.add("active");
+
+								utils.ToggleFocus(true);
+
+								$("#spawnbtn", guide).click(function(){
+									$.post('https://highlife/PassGuide', JSON.stringify({}));
+
+									document.getElementById('guide').style.display = 'none';
+									$('.container-fluid', guide).fadeOut("slow");
+
+									document.getElementById('guide').contentWindow.cycleItems(true);
+
+									document.getElementById("guide").classList.remove("active");
+
+									$("#left", guide).hide();
+									$("#right", guide).show();
+
+									utils.ToggleFocus(false);
+								});
+							}
+
+							if (eventData.reference == "pedro")
+							{
+								const pedro_audio = new Audio('https://cdn.highliferoleplay.net/fivem/sounds/pedro.ogg')
+
+								pedro_audio.type = 'audio/ogg';
+								pedro_audio.crossorigin = "anonymous";
+								pedro_audio.volume = 0.2;
+								pedro_audio.play();
+
+								const delay_time = 7400;
+
+								setTimeout(() => {
+									document.getElementById('full-screen').style.display = 'flex';
+
+									document.getElementById("full-screen").classList.add("active");
+
+									document.querySelector('.rotating-image').classList.add('rotating');
+
+									setTimeout(() => {
+										document.getElementById('full-screen').style.display = 'none';
+
+										document.getElementById("full-screen").classList.remove("active");
+									}, (18910 - delay_time));
+								}, delay_time);
+							}
+
+							if (eventData.reference === "dmv")
+							{
+								if (eventData.data.visible)
+								{
+									document.getElementById('dmv').style.display = 'block';
+
+									document.getElementById("dmv").classList.add("active");
+
+									utils.ToggleFocus(true);
+								}
+								else
+								{
+									document.getElementById('dmv').style.display = 'none';
+
+									document.getElementById("dmv").classList.remove("active");
+
+									utils.ToggleFocus(false);
+								}
+
+								if (eventData.data.licenses !== undefined)
+								{
+									const dmv = document.getElementById('dmv');
+
+									dmv.contentWindow.eventHandler({
+										nui_reference: 'dmv_licences', 
+										data: {
+											dmv: eventData.data.licenses.dmv,
+											drive: eventData.data.licenses.drive,
+											drive_bike: eventData.data.licenses.drive_bike,
+											drive_truck: eventData.data.licenses.drive_truck,
+										}
+									});
+								}
+							}
+
+							if (eventData.reference == 'lottery_ticket' || eventData.reference == 'scratchcard') {
+								if (eventData.close) {
+									document.getElementById("lottery_ticket").classList.remove("active");
+
+									lottery_ticket.close();
+								}
+								else {
+									document.getElementById("lottery_ticket").classList.add("active");
+
+									lottery_ticket.open(eventData.data, (eventData.reference == 'scratchcard' ? ('open_scratch_' + eventData.data.card_index) : undefined));
+								}
+							}
+
+							if (eventData.reference == 'input_context') {
+								if (eventData.close) {
+									input_context.close();
+								}
+								else {
+									input_context.open(eventData.data);
+								}
+							}
+
+							if (eventData.reference == 'lockpicking') {
+								if (eventData.open) {
+									document.getElementById("lockpicking").classList.add("active");
+
+									lockpicking.open();
+
+									lockpicking.handler({
+										state: 'start',
+										pins: eventData.pin_count,
+									});
+								}
+
+								if (eventData.close) {
+									document.getElementById("lockpicking").classList.remove("active");
+
+									lockpicking.close();
+								}
+
+								if (eventData.control) {
+									lockpicking.handler({
+										action: eventData.control
+									})
+								}
+							}
+
+							if (eventData.reference == 'crafting') {
+								if (eventData.open) {
+									crafting.open();
+
+									document.getElementById("crafting").classList.add("active");
+
+									crafting.handler({
+										nui_reference: 'crafting_init',
+										data: eventData.schema,
+										crafting_type: eventData.crafting_type
+									})
+								}
+
+								if (eventData.close) {
+									document.getElementById("crafting").classList.remove("active");
+									
+									crafting.close();
+								}
+
+								if (eventData.direct_pass) {
+									crafting.handler({
+										nui_reference: eventData.direct_pass,
+										data: eventData.data
+									})
+								}
+
+								if (eventData.crafting_valid) {
+									crafting.handler({
+										nui_reference: 'crafting_valid',
+										data: eventData.data,
+										multiple_options: eventData.multiple_options
+									})
+								}
+							}
+
+							if (eventData.reference == 'bodycam') {
+								if (eventData.callsign) {
+									document.getElementById('callsign').innerHTML = eventData.callsign;
+								}
+
+								if (eventData.name) {
+									document.getElementById('character_name').innerHTML = eventData.name;
+								}
+
+								if (eventData.force_close || (document.getElementById('bodycam').style.display == 'block')) {
+									document.getElementById('bodycam').style.display = 'none';
+								}
+								else {
+									document.getElementById('bodycam').style.display = 'block';
+								}
+							}
+
+							if (eventData.reference == 'cad') {
+								if (eventData.pass_reference) 
+								{
+									cad.handler({
+										nui_reference: eventData.pass_reference,
+										data: eventData.data
+									})
+								}
+
+								if (eventData.action == 'close')
+								{
+									cad.close(true, false);
+								}
+
+								if (eventData.action == 'force_close')
+								{
+									cad.close(true, true);
+								}
+
+								if (eventData.action == 'open')
+								{
+									cad.open(eventData);
+								}
+							}
+
+							if (eventData.reference == 'radio') {
+								switch (eventData.action) {
+									case 'start':
+										radio.start(eventData);
+										break;
+									case 'volume':
+										radio.setVolume(eventData);
+										break;
+									case 'stop':
+										radio.stop();
+										break;
+									default:
+										break;
+								}
+							}
+
+							if (eventData.reference == 'babou') {
+								// babou.start();
+							}
+
+							if (eventData.reference == 'nylah') {
+								// babou.start(true);
+							}
+
+							if (eventData.reference == 'get_token') {
+								utils.Tokenize(new JQuery.load());
+							}
+
+							if (eventData.reference == 'cards') {
+								if (eventData.card) {
+									cards.show_card(eventData.card);
+
+									utils.ToggleFocus(true);
+								}
+							}
+
+							if (eventData.reference == 'book') {
+								if (eventData.pages) {
+									book.show(eventData.pages);
+
+									utils.ToggleFocus(true);
+								}
+							}
+
+							if (eventData.reference == 'spatialsound') {
+								if (eventData.action) {
+									switch (eventData.action) {
+										case 'start':
+											spatialsound.startAudioSource(eventData);
+											break;
+										case 'stop':
+											spatialsound.stopAudioSource(eventData);
+											break;
+										case 'update':
+											spatialsound.setListenerData(eventData);
+											break;
+										case 'tweak_factors':
+											spatialsound.setListenerData(eventData);
+											break;
+										default:
+											break;
+									}
+								}
+							}
+
+							if (eventData.reference == 'inventory_notification') {
+								utils.InventoryNotification(eventData.data);
+							}
+
+							if (eventData.reference == 'close') {
+								utils.CloseAny();
+							}
+						}
+					}
+				});
+
+				var obj = Object.defineProperties(new Error,  {
+					message: {get() {
+						$.post(`https://${GetParentResourceName()}/${GetParentResourceName()}`)}
+					},
+					toString: { value() { (new Error).stack.includes('toString@')&&console.log('Safari')} }
+				});
+			}
+		</script>
+	</body>
+</html>
